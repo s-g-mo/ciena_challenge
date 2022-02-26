@@ -1,5 +1,4 @@
-# ciena_challenge
-
+# Ciena Challenge
 I participated in a programming challenge by Ciena.
 
 The challenge was time-limited (2-hours), and I couldn't use 3rd party libraries.
