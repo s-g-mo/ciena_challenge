@@ -25,7 +25,7 @@ def warmup(A):
   if len(less_than_zero) == len(A):
     return 1
 
-  # Otherwise proceed with cases that have at least some positive element.
+  # Otherwise proceed with cases that have at least some positive elements.
   else:
 
     # Reduce the input array into a unique, sorted, list.
@@ -37,14 +37,14 @@ def warmup(A):
 
     # If the differences b/w subsequent elements are all equal to one,
     # then the maximum integer not in the array is the length of the array + 1
-    equal_one = [element for element in diffs if element == 1]
+    equal_one = [diff for diff in diffs if diff == 1]
     if len(equal_one) == len(diffs):  
       return len(A) + 1
 
     # However, if there's a gap somehwere (a difference > 1), the maximum
-    # element not in the array is the first element that gives difference > 1.
+    # element not in the array is the last element that gives difference > 1.
     else:
-      idx = [(idx,diff) for (idx,diff) in enumerate(diffs) if diff !=1][0][0]
+      idx = [(idx,diff) for (idx,diff) in enumerate(diffs) if diff !=1][0][-1]
       return unique_elements[idx]+1
 
 '''
@@ -72,7 +72,7 @@ def problem1(N):
     for negative in negatives:
       answer.append(negative)
     
-    # Append negative N.
+    # Append negative N to balance N.
     answer.append(-N)
     
     # Check sum and length and return.
@@ -87,14 +87,14 @@ def problem1(N):
     for i in range(0,(N-1)//2):
       answer.append(N-i)
     
-    # Negative mirror of all but the first element.
+    # Negatives (balance all the elements in answer).
     elements_to_mirror = answer.copy()
     negatives = [-element for element in elements_to_mirror]
     
     for negative in negatives:
       answer.append(negative)
     
-    # Append 0.
+    # Append 0 such that we have N elements total.
     answer.append(0)
     
     # Check sum and length and return.
