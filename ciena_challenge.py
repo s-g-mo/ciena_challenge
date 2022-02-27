@@ -42,10 +42,10 @@ def warmup(A):
       return len(A) + 1
 
     # However, if there's a gap somehwere (a difference > 1), the maximum
-    # element not in the array is the last element that gives difference > 1.
+    # element not in the array is the last element that gives difference > 1, -1.
     else:
       idx = [(idx,diff) for (idx,diff) in enumerate(diffs) if diff !=1][0][-1]
-      return unique_elements[idx]+1
+      return unique_elements[idx] - 1
 
 '''
 Problem 1.
